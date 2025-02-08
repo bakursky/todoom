@@ -47,14 +47,13 @@ export default function Home() {
 
     const fetchData = async () => {
         if (!userId) return;
-        let { data, error } = await supabase
+        const { data, error } = await supabase
             .from('tasks')
             .select('*')
             .eq('user_id', userId)
             .order('created_at', { ascending: false });
-        if (data) setTasks(data)
         if (error) throw error
-        console.log(data)
+        if (data) setTasks(data)
     }
 
     useEffect(() => {
@@ -66,17 +65,16 @@ export default function Home() {
 
     const buttonHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        let { data, error } = await supabase
+        const { error } = await supabase
             .from('tasks')
             .insert([{ user_id: userId, task: inputTask }])
-            .select()
         if (error) throw error
         setInputTask('')
         await fetchData()
     }
 
     const checkHandler = async (id: number, completed: boolean) => {
-        let { data, error } = await supabase
+        const { error } = await supabase
             .from('tasks')
             .update({ completed: !completed })
             .eq('id', id);
@@ -86,7 +84,7 @@ export default function Home() {
 
     const deleteTask = async (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
         e.preventDefault()
-        let { data, error } = await supabase
+        const { error } = await supabase
             .from('tasks')
             .delete()
             .eq('id', id)
@@ -97,7 +95,7 @@ export default function Home() {
     return (
         <>
 
-            <input value={inputTask} onChange={(e) => { setInputTask(e.target.value) }} placeholder="💩 Fart every day" />
+            <input value={inputTask} onChange={(e) => { setInputTask(e.target.value) }} placeholder="💩 Fart every day" className="text-black"/>
             <button onClick={buttonHandler}>Add task</button>
 
             {tasks.map((task) => (
@@ -113,7 +111,7 @@ export default function Home() {
             </div>
 
             <div><code>{userId}</code><button>Copy</button></div>
-            <div><input onChange={(e) => { setInputId(e.target.value) }} placeholder="Set new id" />
+            <div><input onChange={(e) => { setInputId(e.target.value) }} placeholder="Set new id" className="text-black"/>
                 <button onClick={() => { setUserId(inputId) }}>Sync</button>
             </div>
 
