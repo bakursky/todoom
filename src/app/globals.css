@@ -21,6 +21,7 @@ body {
 }
 
 body, button {
+  font-size: 18px;
   color: #ff0000;
   text-shadow: 
     -2px -2px 0 #740000,  

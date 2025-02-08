@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${pressStart.variable} antialiased bg-[url('/franco-ferrari-original.jpg')] bg-local`}
+        className={`${pressStart.variable} antialiased bg-[url('/franco-ferrari-original.jpg')] bg-cover bg-center bg-fixed bg-no-repeat`}
       >
         {children}
       </body>

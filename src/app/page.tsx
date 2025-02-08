@@ -93,7 +93,7 @@ export default function Home() {
     }
 
     return (
-        <div className="flex flex-col w-96 mx-auto pt-10 font-press-start">
+        <div className="flex flex-col w-96 mx-auto pt-10 font-press-start px-6">
           <img src="/logo.png" />
             <input value={inputTask} onChange={(e) => { setInputTask(e.target.value) }} placeholder="Do ultra-violence" />
             <button onClick={buttonHandler} className="pb-10">Add task</button>
@@ -101,7 +101,7 @@ export default function Home() {
             {tasks.map((task) => (
                 <p key={task.id} className={task.completed ? 'line-through' : ''}>
                     <input type="checkbox" checked={task.completed} onChange={() => { checkHandler(task.id, task.completed) }} />
-                    {task.task}
+                    <span onClick={() => { checkHandler(task.id, task.completed) }} className="cursor-pointer">{task.task}</span>
                     <button onClick={(e) => { deleteTask(e, task.id) }}>❌</button>
                 </p>
             ))}
