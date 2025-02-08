@@ -20,7 +20,7 @@ export default function Home() {
     const [userId, setUserId] = useState('')
     const [inputTask, setInputTask] = useState('')
     const [inputId, setInputId] = useState('')
-    const userIdUrl = `${process.env.NEXT_PUBLIC_PROJECT_URL}#${userId}`
+    const userIdUrl = `${process.env.NEXT_PUBLIC_PROJECT_URL}/#${userId}`
 
     useEffect(() => {
         const checkUserId = () => {
