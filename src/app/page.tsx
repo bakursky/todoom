@@ -15,7 +15,7 @@ interface Task {
 const supabase = createClient('https://xvaoqofrrmyimwuuankb.supabase.co',
     process.env.NEXT_PUBLIC_SUPABASE_KEY!)
 
-export default function nowletdoitwithoutAI() {
+export default function Home() {
     const [tasks, setTasks] = useState<Task[]>([])
     const [userId, setUserId] = useState('')
     const [inputTask, setInputTask] = useState('')
