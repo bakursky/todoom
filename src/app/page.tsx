@@ -111,7 +111,7 @@ export default function Home() {
             <details className="cursor-pointer">
               <summary>Generate qr code</summary>
               <div className="inline-block p-4 bg-white ">
-              <QRCodeSVG value={userIdUrl} size={200} level="H"/>
+              <QRCodeSVG value={`https://${userIdUrl}`}  size={200} level="H"/>
               </div>
                 
             </details>
