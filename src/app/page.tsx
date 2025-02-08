@@ -108,9 +108,12 @@ export default function Home() {
 
 
             <div className="pt-10">Your ID: <button>{userId}</button></div>
-            <details>
+            <details className="cursor-pointer">
               <summary>Generate qr code</summary>
-                <QRCodeSVG value={userIdUrl} size={200} level="H" />
+              <div className="inline-block p-4 bg-white ">
+              <QRCodeSVG value={userIdUrl} size={200} level="H"/>
+              </div>
+                
             </details>
 
             <div className="pb-10"><input onChange={(e) => { setInputId(e.target.value) }} placeholder="Set new id" className="w-64"/>
