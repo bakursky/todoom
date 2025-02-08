@@ -15,7 +15,28 @@
 }
 
 body {
-  color: var(--foreground);
+  /* color: var(--foreground); */
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body, button {
+  color: #ff0000;
+  text-shadow: 
+    -2px -2px 0 #740000,  
+     2px -2px 0 #740000,
+    -2px  2px 0 #740000,
+     2px  2px 0 #740000,
+    0px 0px 8px rgba(255, 0, 0, 0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+input {
+  background: #342c14;
+  border: 4px solid #14240c; 
+  box-shadow: 
+    inset 0 0 10px #14240c;
+    
+}
+

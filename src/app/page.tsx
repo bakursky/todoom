@@ -93,29 +93,34 @@ export default function Home() {
     }
 
     return (
-        <>
-
-            <input value={inputTask} onChange={(e) => { setInputTask(e.target.value) }} placeholder="💩 Fart every day" className="text-black"/>
-            <button onClick={buttonHandler}>Add task</button>
+        <div className="flex flex-col w-96 mx-auto pt-10 font-press-start">
+          <img src="/logo.png" />
+            <input value={inputTask} onChange={(e) => { setInputTask(e.target.value) }} placeholder="Do ultra-violence" />
+            <button onClick={buttonHandler} className="pb-10">Add task</button>
 
             {tasks.map((task) => (
                 <p key={task.id} className={task.completed ? 'line-through' : ''}>
                     <input type="checkbox" checked={task.completed} onChange={() => { checkHandler(task.id, task.completed) }} />
                     {task.task}
-                    <button onClick={(e) => { deleteTask(e, task.id) }}>🔪</button>
+                    <button onClick={(e) => { deleteTask(e, task.id) }}>❌</button>
                 </p>
             ))}
 
-            <div className="inline-block p-5 bg-white rounded-md">
-                <QRCodeSVG value={userIdUrl} size={200} level="H" />
-            </div>
 
-            <div><code>{userId}</code><button>Copy</button></div>
-            <div><input onChange={(e) => { setInputId(e.target.value) }} placeholder="Set new id" className="text-black"/>
+            <div className="pt-10">Your ID: <button>{userId}</button></div>
+            <details>
+              <summary>Generate qr code</summary>
+                <QRCodeSVG value={userIdUrl} size={200} level="H" />
+            </details>
+
+            <div className="pb-10"><input onChange={(e) => { setInputId(e.target.value) }} placeholder="Set new id" className="w-64"/>
                 <button onClick={() => { setUserId(inputId) }}>Sync</button>
             </div>
+            <p>Made by <a href="https://bakursky.ru/">bakursky</a></p>
+            {/* <p><a href="https://dos.zone/ru/doom2d/">Play DOOM 2</a></p> */}
 
-            {/* <div>
+{/* 
+            <div>
                 <iframe
                     src="https://js-dos.com/games/doom2.exe.html"
                     width="800"
@@ -124,6 +129,6 @@ export default function Home() {
                     allowFullScreen
                 ></iframe>
             </div> */}
-        </>
+        </div>
     )
 }
